@@ -1,0 +1,18 @@
+name: End-to-end tests
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run split Cypress tests 🧪
+        uses: cypress-io/github-action@v5
+        # pass the machine index and the total number
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
