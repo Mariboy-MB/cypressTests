@@ -2,8 +2,10 @@
   "dependencies": {
     "cypress": "^13.6.1"
   },
-
   "scripts": {
     "test": "cypress run"
+  },
+  "devDependencies": {
+    "cypress-split": "^1.17.1"
   }
 }
